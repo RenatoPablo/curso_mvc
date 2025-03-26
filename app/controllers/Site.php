@@ -34,7 +34,14 @@ class Site extends Crud
 
     public function editar($id)
     {
+        $editarForm = $this->editForm();
         require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'editar.php';
+    }
+
+    public function alterar()
+    {
+        $alterar = $this->update();
+        header("Location:?router=Site/consulta/");
     }
 
 }

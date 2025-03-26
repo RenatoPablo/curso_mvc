@@ -33,11 +33,41 @@ class Crud extends Connection
 
     public function update()
     {
+        $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
+        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+        $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_SPECIAL_CHARS);
 
+        $conn = $this->connect();
+        $sql = "UPDATE tb_person SET nome = :nome, email = :email WHERE id = :id";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([
+            ':nome'=>$nome,
+            ':email'=>$email,
+            ':id'=>$id
+        ]);
+
+        return $stmt;
     }
 
     public function delete()
     {
 
+    }
+
+    public function editForm()
+    {
+        $id = base64_decode(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_SPECIAL_CHARS));
+
+        $conn = $this->connect();
+        $sql = "SELECT * FROM tb_person WHERE id = :id";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([
+            ':id'=>$id
+        ]);
+        
+        // USE O CONTRA BARRA PARA DIZER QUE É DO PHP NATIVO
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $result;
     }
 }

@@ -14,8 +14,8 @@
                     <td><?php echo $registo['nome']?></td>
                     <td><?php echo $registo['email'] ?></td>
                     <td>
-                        <a href="?router=Site/editar/&id=<?php echo $registo['id'] ?>">Editar</a> |
-                        <a href="?router=Site/delete/&id=<?php echo $registo['id'] ?>">Excluir</a>
+                        <a href="?router=Site/editar/&id=<?php echo base64_encode($registo['id']) ?>">Editar</a> |
+                        <a href="?router=Site/delete/&id=<?php echo base64_encode($registo['id']) ?>" class="red-text">Excluir</a>
                     </td>
                 </tr> 
 
