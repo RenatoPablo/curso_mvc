@@ -13,8 +13,8 @@
             <a href="?router=Site/home/" class="brand-logo ligth">Curso de MVC</a>
 
             <ul class="right">
-                <li><a href="">Cadastro</a></li>
-                <li><a href="">Consulta</a></li>
+                <li><a href="?router=Site/cadastro/">Cadastro</a></li>
+                <li><a href="?router=Site/consulta/">Consulta</a></li>
             </ul>
         </div>
     </nav>
