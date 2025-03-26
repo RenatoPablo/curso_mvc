@@ -8,7 +8,16 @@
 </head>
 <body>
     
-    <nav class="blue"></nav>
+    <nav class="blue">
+        <div class="nav-wrapper container">
+            <a href="?router=Site/home/" class="brand-logo ligth">Curso de MVC</a>
+
+            <ul class="right">
+                <li><a href="">Cadastro</a></li>
+                <li><a href="">Consulta</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <script src="config/materialize/js/materialize.min.js"></script>
 </body>
