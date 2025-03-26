@@ -2,7 +2,9 @@
 
 namespace app\controllers;
 
-class Site
+use app\models\Crud;
+
+class Site extends Crud
 {
     public function home()
     {
@@ -17,12 +19,22 @@ class Site
 
     public function cadastro()
     {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+        {
+            $cadastro = $this->create();
+        }
         require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'cadastro.php';
     }
 
     public function consulta()
     {
+        $consulta = $this->read();
         require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'consulta.php';
+    }
+
+    public function editar($id)
+    {
+        require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'editar.php';
     }
 
 }

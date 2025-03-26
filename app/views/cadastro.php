@@ -4,7 +4,7 @@
     </div>
 
     <div class="col s12">
-        <form action="?router=Site/cadastro/" method="post">
+        <form action="?router=Site/cadastro/" method="POST">
             <div class="input-field col s12 m6">
                 <input type="text" name="nome" id="nome" required>
                 <label for="nome">Digite seu nome:</label>
@@ -13,11 +13,6 @@
             <div class="input-field col s12 m6">
                 <input type="email" name="email" id="email" required>
                 <label for="email">Digite seu e-mail:</label>
-            </div>
-
-            <div class="input-field col s12">
-                <input type="tel" name="tel" id="tel" required>
-                <label for="tel">Digite seu telefone:</label>
             </div>
 
             <div class="input-field col s12">
