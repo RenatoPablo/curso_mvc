@@ -44,4 +44,19 @@ class Site extends Crud
         header("Location:?router=Site/consulta/");
     }
 
+    public function confirmaDelete()
+    {
+        $id = base64_decode(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_SPECIAL_CHARS)); 
+        require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'confirmaDelete.php';
+    }
+
+    public function deletar()
+    {
+        $deletar = $this->delete();
+
+        $consulta = $this->read();
+
+        require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'consulta.php';
+    }
+
 }
